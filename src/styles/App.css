@@ -1,0 +1,156 @@
+/* Base Application Styles */
+body {
+  color: #fff;
+  background: #222;
+}
+
+.index img {
+  margin: 40px auto;
+  border-radius: 4px;
+  background: #fff;
+  display: block;
+}
+
+.index .notice {
+  margin: 20px auto;
+  padding: 15px 0;
+  text-align: center;
+  border: 1px solid #000;
+  border-width: 1px 0;
+  background: #666;
+}
+
+input::-webkit-input-placeholder {
+  font-size: .80em;
+}
+
+input::placeholder {
+  font-size: .80em;
+}
+
+.pagination-container {
+  position: absolute !important;
+  top: 4em;
+}
+
+.paginator-page {
+  padding-top: 5px;
+}
+
+.indent-relation {
+  padding-left: 30px;
+  position: relative;
+  margin-top: 5px;
+}
+
+.indent-relation .indent-relation:before,
+.indent-relation .indent-relation:after {
+  font-size: .8em;
+  line-height: .9em;
+  padding: .1em;
+  z-index: 0;
+}
+
+.indent-relation:hover > .indent-relation:before,
+.indent-relation:hover > .indent-relation:after {
+  background: red;
+}
+
+.indent-relation .indent-relation:hover > .indent-relation:before,
+.indent-relation .indent-relation:hover > .indent-relation:after {
+  background: orange;
+}
+
+.indent-relation .indent-relation .indent-relation:hover > .indent-relation:before,
+.indent-relation .indent-relation .indent-relation:hover > .indent-relation:after {
+  background: yellow;
+}
+
+.indent-relation .indent-relation .indent-relation .indent-relation:hover > .indent-relation:before,
+.indent-relation .indent-relation .indent-relation .indent-relation:hover > .indent-relation:after {
+  background: green;
+}
+
+.indent-relation .indent-relation:before {
+  content: "│";
+  position: absolute;
+  top: -.5em;
+  left: 5px;
+}
+
+.indent-relation .indent-relation:after {
+  content: "└─";
+  position: absolute;
+  left: 5px;
+  top: .45em;
+}
+
+
+.relationship-label {
+  /*float: left;*/
+}
+
+.mortar-toggle .control-label {
+  max-width: 300px;
+  width: auto;
+  display: inline-block;
+  /*float: right;*/
+}
+
+.mortar-toggle input + label {
+  display: inline-block !important;
+  float: left;
+}
+
+.explorer-top-container {
+  max-height: 400px;
+  overflow: scroll;
+}
+
+.form-icon {
+  display: none;
+}
+
+.api-explorer-json-viewer {
+  max-height: 600px;
+  overflow: scroll;
+}
+
+/** Pretty JSON **/
+pre {
+  background-color: ghostwhite;
+  border: 1px solid silver;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.json-key {
+  color: #F1C40F;
+}
+
+.json-value {
+  color: #F1F3F6;
+}
+
+.json-string {
+  color: olive;
+}
+
+.explorer-apply-filter-btn {
+  margin-top: 0px !important;
+  width: 25% !important;
+}
+
+.explorer-apply-filter-ctrl-btn {
+  margin-top: 0px !important;
+  width: 5% !important;
+}
+
+.explorer-apply-sort-btn {
+  margin-top: 0px !important;
+  width: 35% !important;
+}
+
+.dropdown-container {
+  background-color: rgb(230, 230, 230) !important;
+}
