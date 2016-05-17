@@ -1,8 +1,8 @@
 export default {
 	base: {
-		baseUrl        : 'http://crub-api.l5.localhost/',
+		baseUrl        : 'http://api.crubclub.com/',
 		apiVersion     : '1.0',
-		apiVersionedUrl: 'http://crub-api.l5.localhost/1.0/'
+		apiVersionedUrl: 'http://api.crubclub.com/1.0/'
 	},
 	analytics: {
 		google: 'UA-77775025-1'
