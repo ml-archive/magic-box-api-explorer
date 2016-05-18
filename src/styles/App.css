@@ -54,20 +54,20 @@ input::placeholder {
 
 .indent-relation:hover > .indent-relation:before,
 .indent-relation:hover > .indent-relation:after {
-  color: red;
-  text-shadow: 0 0 8px red;
+  color: violet;
+  text-shadow: 0 0 8px violet;
 }
 
 .indent-relation .indent-relation:hover > .indent-relation:before,
 .indent-relation .indent-relation:hover > .indent-relation:after {
-  color: orange;
-  text-shadow: 0 0 8px orange;
+  color: red;
+  text-shadow: 0 0 8px red;
 }
 
 .indent-relation .indent-relation .indent-relation:hover > .indent-relation:before,
 .indent-relation .indent-relation .indent-relation:hover > .indent-relation:after {
-  color: yellow;
-  text-shadow: 0 0 8px yellow;
+  color: orange;
+  text-shadow: 0 0 8px orange;
 }
 
 .indent-relation .indent-relation .indent-relation .indent-relation:hover > .indent-relation:before,
