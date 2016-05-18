@@ -5,7 +5,7 @@ npm run dist
 
 if [ "$1" = "prod" ]
 then
-    BUCKET="simonyo.us"
+    BUCKET="explorer.magic-box.fuzzpro.com"
 else
     BUCKET="${1}"
 fi
@@ -13,4 +13,4 @@ fi
 echo "Deploying to ${BUCKET}"
 
 ## Deploy to AWS
-aws s3 sync dist/ s3://${BUCKET} --profile simonyous --acl public-read
+aws s3 sync dist/ s3://${BUCKET} --profile crub --acl public-read

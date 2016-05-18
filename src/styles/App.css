@@ -154,3 +154,11 @@ pre {
 .dropdown-container {
   background-color: rgb(230, 230, 230) !important;
 }
+
+#api-explorer {
+  padding-top: 20px !important;
+}
+
+.main-nav-container {
+  padding-top: 30px !important;
+}
