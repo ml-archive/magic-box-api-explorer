@@ -5,7 +5,7 @@ npm run dist
 
 if [ "$1" = "prod" ]
 then
-    BUCKET="explorer.magic-box.fuzzpro.com"
+    BUCKET="explorer.magic-box.fuzzproductions.com"
 else
     BUCKET="${1}"
 fi
