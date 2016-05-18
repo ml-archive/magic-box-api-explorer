@@ -49,26 +49,31 @@ input::placeholder {
   line-height: .9em;
   padding: .1em;
   z-index: 0;
+  font-weight: bold;
 }
 
 .indent-relation:hover > .indent-relation:before,
 .indent-relation:hover > .indent-relation:after {
-  background: red;
+  color: red;
+  text-shadow: 0 0 8px red;
 }
 
 .indent-relation .indent-relation:hover > .indent-relation:before,
 .indent-relation .indent-relation:hover > .indent-relation:after {
-  background: orange;
+  color: orange;
+  text-shadow: 0 0 8px orange;
 }
 
 .indent-relation .indent-relation .indent-relation:hover > .indent-relation:before,
 .indent-relation .indent-relation .indent-relation:hover > .indent-relation:after {
-  background: yellow;
+  color: yellow;
+  text-shadow: 0 0 8px yellow;
 }
 
 .indent-relation .indent-relation .indent-relation .indent-relation:hover > .indent-relation:before,
 .indent-relation .indent-relation .indent-relation .indent-relation:hover > .indent-relation:after {
-  background: green;
+  color: green;
+  text-shadow: 0 0 8px green;
 }
 
 .indent-relation .indent-relation:before {
