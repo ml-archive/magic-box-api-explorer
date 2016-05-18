@@ -5,6 +5,9 @@ let MortarJS = require('../../bootstrap').MortarJS;
 let Br = MortarJS.require('components', 'Form', 'Checkbox', 'Row', 'Column', 'Button');
 
 class ResourcePicker extends React.Component {
+	/**
+	 * ResourcePicker component constructor
+	 */
 	constructor() {
 		super();
 
@@ -15,6 +18,11 @@ class ResourcePicker extends React.Component {
 		};
 	}
 
+	/**
+	 * Build API schema into an array of resource options for dropdown
+	 *
+	 * @returns {Array}
+	 */
 	getResourceOptionList() {
 		let options = [];
 		for (let resource in this.props.schema) {
@@ -22,12 +30,20 @@ class ResourcePicker extends React.Component {
 				continue;
 			}
 
-			options.push(resource);
+			if (! this.props.schema[resource].singular) {
+				options.push(resource);
+			}
 		}
 
 		return options;
 	}
 
+	/**
+	 * Custom action handler for changes in `resource` dropdown
+	 *
+	 * @param {string} fieldKey
+	 * @param {string} value
+	 */
 	handleResourceSelection(fieldKey, value) {
 		this.setState({
 			resource: {

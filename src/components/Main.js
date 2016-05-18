@@ -14,22 +14,35 @@ import Nav from './Navigation';
 import APIExplorer from './APIExplorer';
 
 class AppComponent extends React.Component {
+	/**
+	 * Main component constructor
+	 */
 	constructor() {
 		super();
 
+		// CrubClub API resource schema
 		this.schema = {
 			locations: {
 				relations: ['runs', 'reviews']
 			},
 			reviews: {
-				relations: ['locations']
+				relations: ['location']
 			},
 			runs: {
 				relations: ['location']
+			},
+			location: {
+				relations: ['runs', 'reviews'],
+				singular: true
 			}
 		};
 	}
 
+	/**
+	 * Handle Google Analytics initialization
+	 *
+	 * @return {void}
+	 */
 	componentWillMount() {
 		ga.initialize(config.analytics.google);
 

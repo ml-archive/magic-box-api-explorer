@@ -7,6 +7,9 @@ let Br = MortarJS.require('components', 'Form', 'Checkbox', 'Row', 'Column', 'Bu
 let FormStore = MortarJS.Stores.FormStore;
 
 class Paginator extends React.Component {
+	/**
+	 * Paginator component constructor
+	 */
 	constructor() {
 		super();
 
@@ -17,23 +20,41 @@ class Paginator extends React.Component {
 		};
 	}
 
+	/**
+	 * Mount store change listeners so we can react to store changes
+	 */
 	componentWillMount() {
 		FormStore.addChangeListener(this._formChanges.bind(this));
 	}
 
+	/**
+	 * Dismount store change listeners so we can clean up
+	 */
 	componentWillUnmount() {
 		FormStore.removeChangeListener(this._formChanges.bind(this));
 	}
 
+	/**
+	 * React to changes in FormStore
+	 *
+	 * @private
+	 */
 	_formChanges() {
 		this.setState({
 			pagination: FormStore.getResource(this.formKey)
 		});
 	}
 
+	/**
+	 * Sift through actions and route them to appropriate logic
+	 *
+	 * @param {string} action
+	 * @param {*} resource
+	 */
 	handleAction(action, resource) {
 		switch (action) {
 			case 'next-page':
+				// No next page
 				if (APIExplorerStore.getCurrentPage() === APIExplorerStore.getTotalPages()) {
 					break;
 				}
@@ -42,6 +63,7 @@ class Paginator extends React.Component {
 				this.props.refreshData();
 				break;
 			case 'previous-page':
+				// No previous page
 				if (APIExplorerStore.getCurrentPage() === 1) {
 					break;
 				}

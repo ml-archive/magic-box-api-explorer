@@ -6,6 +6,9 @@ let Br = MortarJS.require('components', 'Form', 'Checkbox', 'Row', 'Column', 'Bu
 let FormStore = MortarJS.Stores.FormStore;
 
 class Sorting extends React.Component {
+	/**
+	 * Sorting component constructor
+	 */
 	constructor() {
 		super();
 
@@ -25,20 +28,36 @@ class Sorting extends React.Component {
 		};
 	}
 
+	/**
+	 * Mount store change listeners so we can react to store changes
+	 */
 	componentWillMount() {
 		FormStore.addChangeListener(this._formChanges.bind(this));
 	}
 
+	/**
+	 * Dismount store change listeners so we can clean up
+	 */
 	componentWillUnmount() {
 		FormStore.removeChangeListener(this._formChanges.bind(this));
 	}
 
+	/**
+	 * React to FormStore changes
+	 *
+	 * @private
+	 */
 	_formChanges() {
 		this.setState({
 			sorts: FormStore.getResource(this.formKey)
 		});
 	}
 
+	/**
+	 * Apply sort options to API request
+	 *
+	 * @param {array} sorts
+	 */
 	applySorts(sorts) {
 		let applySorts = {};
 
@@ -50,6 +69,12 @@ class Sorting extends React.Component {
 		this.props.refreshData();
 	}
 
+	/**
+	 * Sift through actions and route them to appropriate logic
+	 *
+	 * @param {string} action
+	 * @param {*} resource
+	 */
 	handleAction(action, resource) {
 		switch (action) {
 			case 'add-sorts-row':
@@ -73,6 +98,11 @@ class Sorting extends React.Component {
 		}
 	}
 
+	/**
+	 * Build sort input rows
+	 *
+	 * @returns {Array}
+	 */
 	renderFormInputs() {
 		return this.state.sorts.map((sort, index) => {
 			return (

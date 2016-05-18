@@ -7,6 +7,11 @@ let AppDispatcher = MortarJS.Dispatcher;
 let ModelStore = MortarJS.Stores.ModelStore;
 let MortarConstants = MortarJS.Constants.ActionTypes;
 
+/**
+ * Main APIExplorerStore data storage
+ *
+ * @type {{resource: string, id: null, response: {}, options: {modifiers: {filters: {}, include: Array, sort: {}, pagination: {per_page: number, page: number}}}, paginationData: {count: number, links: {next: string, previous: string}, total: number, total_pages: number}, dataNode: string}}
+ */
 let storeData = {
 	resource: '',
 	id      : null,
@@ -34,19 +39,44 @@ let storeData = {
 	dataNode: 'data'
 };
 
+/**
+ * Determine the event name we should be listening to according to the current resource
+ *
+ * @param {string} name
+ * @returns {string}
+ */
 function eventName(name) {
 	return storeData.resource.toUpperCase() + '_' + name;
 }
 
+/**
+ * The APIExplorer Store
+ * @type {*}
+ */
 let APIExplorerStore = Object.assign({}, ModelStore, {
+	/**
+	 * Getter for current resource
+	 *
+	 * @returns {string}
+	 */
 	getResource: function() {
 		return storeData.resource;
 	},
 
+	/**
+	 * Getter for current response
+	 *
+	 * @returns {string}
+	 */
 	getResponse: function() {
 		return storeData.response;
 	},
 
+	/**
+	 * Getter for current modifiers
+	 *
+	 * @returns {object}
+	 */
 	getModifiers: function(key) {
 		if (key) {
 			return storeData.options.modifiers[key];
@@ -55,18 +85,38 @@ let APIExplorerStore = Object.assign({}, ModelStore, {
 		return storeData.options.modifiers;
 	},
 
+	/**
+	 * Getter for current includes
+	 *
+	 * @returns {object}
+	 */
 	getIncludes: function () {
 		return storeData.options.modifiers.include;
 	},
 
+	/**
+	 * Getter for current options
+	 *
+	 * @returns {object}
+	 */
 	getOptions: function() {
 		return storeData.options;
 	},
 
+	/**
+	 * Getter for current dataNode
+	 *
+	 * @returns {string}
+	 */
 	getDataNode: function() {
 		return storeData.dataNode;
 	},
 
+	/**
+	 * Getter for current URL
+	 *
+	 * @returns {string}
+	 */
 	getUrl: function (path) {
 		if (path) {
 			return config.base.apiVersionedUrl + path;
@@ -75,14 +125,29 @@ let APIExplorerStore = Object.assign({}, ModelStore, {
 		return storeData.id === null ? `${config.base.apiVersionedUrl}${this.getResource()}` : `${config.base.apiVersionedUrl}${this.getResource()}/${storeData.id}`;
 	},
 
+	/**
+	 * Getter for current per page count
+	 *
+	 * @returns {int}
+	 */
 	getPerPage() {
 		return storeData.options.modifiers.pagination.per_page;
 	},
 
+	/**
+	 * Getter for current page
+	 *
+	 * @returns {int}
+	 */
 	getCurrentPage() {
 		return storeData.options.modifiers.pagination.page;
 	},
 
+	/**
+	 * Getter for current total page count
+	 *
+	 * @returns {int}
+	 */
 	getTotalPages() {
 		return storeData.paginationData.total_pages;
 	}

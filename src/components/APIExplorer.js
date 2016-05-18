@@ -14,39 +14,77 @@ let Br = MortarJS.require('components', 'Form', 'Checkbox', 'Row', 'Column');
 let FormStore = MortarJS.Stores.FormStore;
 
 class APIExplorer extends React.Component {
+	/**
+	 * Load up a new resource action
+	 *
+	 * @param {string} resource
+	 */
 	getResourceAction(resource) {
 		return new ResourceActions(resource);
 	}
 
+	/**
+	 * Set a new target resource
+	 *
+	 * @param {string} resource
+	 */
 	setResource(resource) {
 		APIExplorerActions.setResource(resource);
 		this.requestData('listResource');
 	}
 
+	/**
+	 * Refresh data from API with new request modifiers
+	 *
+	 * @return {void}
+	 */
 	refreshData() {
 		this.requestData('listResource');
 	}
 
+	/**
+	 * Mount store change listeners so we can react to store changes
+	 */
 	componentWillMount() {
+		// Set the initial resource
 		this.setResource(this.props.defaultResource);
 
 		APIExplorerStore.addChangeListener(this._onChange.bind(this));
 		FormStore.addChangeListener(this._formChanges.bind(this));
 	}
 
+	/**
+	 * Dismount store change listeners so we can clean up
+	 */
 	componentWillUnmount() {
 		APIExplorerStore.removeChangeListener(this._onChange.bind(this));
 		FormStore.removeChangeListener(this._formChanges.bind(this));
 	}
 
+	/**
+	 * React to APIExplorerStore changes
+	 *
+	 * @private
+	 */
 	_onChange() {
 		this.forceUpdate();
 	}
 
+	/**
+	 * React to FormStore changes
+	 *
+	 * @private
+	 */
 	_formChanges() {
 
 	}
 
+	/**
+	 * Request new data from the API with new modifiers
+	 *
+	 * @todo support more than 'listResource'
+	 * @param {string} method
+	 */
 	requestData(method) {
 		this.getResourceAction(APIExplorerStore.getResource())[method](APIExplorerStore.getOptions());
 	}

@@ -1,4 +1,14 @@
 export default {
+	/**
+	 * Replace JSON tokens with HTML elements
+	 *
+	 * @param match
+	 * @param pIndent
+	 * @param pKey
+	 * @param pVal
+	 * @param pEnd
+	 * @returns {*}
+	 */
 	replacer: function(match, pIndent, pKey, pVal, pEnd) {
 		var key = '<span class=json-key>';
 		var val = '<span class=json-value>';
@@ -12,6 +22,13 @@ export default {
 		}
 		return r + (pEnd || '');
 	},
+
+	/**
+	 * Stringify and replace JSOn tokens
+	 *
+	 * @param {object} obj
+	 * @returns {string}
+	 */
 	prettyPrint: function(obj) {
 		var jsonLine = /^( *)("[\w]+": )?("[^"]*"|[\w.+-]*)?([,[{])?$/mg;
 		return JSON.stringify(obj, null, 3)

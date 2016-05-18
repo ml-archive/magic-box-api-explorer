@@ -6,6 +6,9 @@ let Br = MortarJS.require('components', 'Form', 'Checkbox', 'Row', 'Column', 'Bu
 let FormStore = MortarJS.Stores.FormStore;
 
 class Filters extends React.Component {
+	/**
+	 * Filters component constructor
+	 */
 	constructor() {
 		super();
 
@@ -29,20 +32,36 @@ class Filters extends React.Component {
 		};
 	}
 
+	/**
+	 * Mount store change listeners so we can react to store changes
+	 */
 	componentWillMount() {
 		FormStore.addChangeListener(this._formChanges.bind(this));
 	}
 
+	/**
+	 * Dismount store change listeners so we can clean up
+	 */
 	componentWillUnmount() {
 		FormStore.removeChangeListener(this._formChanges.bind(this));
 	}
 
+	/**
+	 * Handle Form Store change listeners
+	 *
+	 * @private
+	 */
 	_formChanges() {
 		this.setState({
 			filters: FormStore.getResource(this.formKey)
 		});
 	}
 
+	/**
+	 * Convert our data structure for filters into a structure Mortar can convert into a URL
+	 *
+	 * @param {array} filters
+	 */
 	applyFilters(filters) {
 		let applyFilters = {};
 
@@ -54,6 +73,12 @@ class Filters extends React.Component {
 		this.props.refreshData();
 	}
 
+	/**
+	 * Sift through actions and direct them to appropriate logic
+	 *
+	 * @param {string} action
+	 * @param {*} resource
+	 */
 	handleAction(action, resource) {
 		switch (action) {
 			case 'add-filter-row':
@@ -79,6 +104,11 @@ class Filters extends React.Component {
 		}
 	}
 
+	/**
+	 * Build each row of filter inputs
+	 *
+	 * @returns {Array}
+	 */
 	renderFormInputs() {
 		return this.state.filters.map((filter, index) => {
 			return (
