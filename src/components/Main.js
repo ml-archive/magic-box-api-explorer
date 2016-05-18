@@ -24,7 +24,7 @@ class AppComponent extends React.Component {
 			reviews: {
 				relations: ['locations']
 			},
-			run: {
+			runs: {
 				relations: ['location']
 			}
 		};
