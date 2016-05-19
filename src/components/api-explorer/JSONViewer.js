@@ -49,7 +49,7 @@ class JSONViewer extends React.Component {
 	render() {
 		return (
 			<div>
-				<p>JSON Response for: {APIExplorerStore.getUrl()}</p>
+				<p><b>JSON Response for: <a href={APIExplorerStore.getUrl()}>{APIExplorerStore.getUrl()}</a></b></p>
 
 				<div className="api-explorer-json-viewer" dangerouslySetInnerHTML={this.renderJSON(APIExplorerStore.getResponse())}>
 				</div>

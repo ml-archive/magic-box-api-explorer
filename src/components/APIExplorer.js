@@ -133,23 +133,23 @@ class APIExplorer extends React.Component {
 
 						<br />
 
-						<Br.Row>
-							<Br.Column grid="md" size="8" className="">
-								<JSONViewer />
-								<Paginator resource={resource} refreshData={this.refreshData.bind(this)} schema={this.props.schema} />
-							</Br.Column>
+						<Br.Row classes="api-explorer-lower">
+								<Br.Column grid="md" size="8" className="">
+									<JSONViewer />
+									<Paginator resource={resource} refreshData={this.refreshData.bind(this)} schema={this.props.schema} />
+								</Br.Column>
 
-							<Br.Column grid="md" size="4" className="">
-								<br />
-								<Includes resource={resource} refreshData={this.refreshData.bind(this)} schema={this.props.schema} />
-							</Br.Column>
+								<Br.Column grid="md" size="4" className="">
+									<br />
+									<Includes resource={resource} refreshData={this.refreshData.bind(this)} schema={this.props.schema} />
+								</Br.Column>
 
-							<Br.Column grid="md" size="4" classes="col-md-offset-1">
-								<br/>
-								<Br.Row>
+								<Br.Column grid="md" size="4" classes="col-md-offset-1">
+									<br/>
+									<Br.Row>
 
-								</Br.Row>
-							</Br.Column>
+									</Br.Row>
+								</Br.Column>
 						</Br.Row>
 					</Br.Row>
 				</div>
