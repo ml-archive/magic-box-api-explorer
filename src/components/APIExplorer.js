@@ -110,6 +110,12 @@ class APIExplorer extends React.Component {
 
 					<Br.Row>
 						<Br.Row>
+							<Br.Column grid="md" size="12" className="wow fadeIn">
+							<p>CRUB (Coffee Runners United Brigade) is a long standing Fuzz tradition of going outside to get coffee. As a group. Together. For fun. The CRUBClub™ API powers our decision making by providing a collection of coffee shops around our office along with reviews and a historical account of where we've been. The API is also integrated with our office tools like Slack and an IoT Arduino-powered button to announce when it's time for the group to assemble and head out.</p>
+							<p>This is a React and <a href="https://github.com/fuzz-productions/Mortar-JS">MortarJS</a> powered API Explorer that's connected to a <a href="https://github.com/fuzz-productions/magic-box">Magic Box</a> powered API. You can use it to explore and play with some of the features Magic Box supports out of the (magic) box. Feel free to <a href="mailto:opensource@fuzzprodctions.com">contact us</a> with questions or comments!</p>
+							</Br.Column>
+						</Br.Row>
+						<Br.Row>
 							<ResourcePicker resource={resource} refreshData={this.refreshData.bind(this)} schema={this.props.schema} />
 						</Br.Row>
 
