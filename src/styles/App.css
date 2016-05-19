@@ -109,7 +109,6 @@ input::placeholder {
 
 .explorer-top-container {
   max-height: 400px;
-  overflow: scroll;
 }
 
 .form-icon {
